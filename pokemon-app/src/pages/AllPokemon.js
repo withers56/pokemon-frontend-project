@@ -1,14 +1,41 @@
+import PokemonsList from "../components/pokemons/PokemonsList";
+import {useEffect, useState} from "react";
+
 function AllPokemon() {
-    function getPokis() {
-        fetch('https://pokeapi.co/api/v2/pokemon/1').then((resp) => resp.json())
-            .then((data) => {
-                window.localStorage.setItem(data.name, JSON.stringify(data));
-                console.log(JSON.parse(window.localStorage.getItem(data.name)))
-            })
+    const [isLoading, setIsLoading] = useState(true)
+    const [loadedPokemons, setLoadedPokemons] = useState([]);
+
+    useEffect(() => {
+        setIsLoading(true);
+        fetch('https://pokeapi.co/api/v2/pokemon/').then(function (resp){
+            return resp.json();
+        }).then(function (data){
+            const pokemons = [];
+
+            for (const pokemon of data.results) {
+                const pokemonToAdd = {
+                    name: pokemon.name,
+                    url: pokemon.url
+                }
+                pokemons.push(pokemonToAdd)
+            }
+
+            setIsLoading(false);
+            setLoadedPokemons(pokemons)
+        });
+    }, [])
+
+    if (isLoading) {
+        return (
+            <section>
+                <p>Loading...</p>
+            </section>
+        )
     }
+
     return (
         <div>this is where all the pokemon will go
-            <button onClick={getPokis}>search</button>
+            <PokemonsList pokemons={loadedPokemons} />
         </div>
 
     )

@@ -1,7 +1,10 @@
-function PokemonsItem() {
+import classes from './PokemonsItem.module.css'
+
+function PokemonsItem(props) {
     return (
-        <div>
-            indivisual pokemon itmes, will wrap in card
+        <div className={classes.card}>
+            <div>{props.name}</div>
+            <div>{props.url}</div>
         </div>
     )
 }
