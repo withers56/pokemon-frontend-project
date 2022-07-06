@@ -7,16 +7,14 @@ function MainNavagation() {
     return (
         <header className={classes.nav}>
             <div>LoGo</div>
-            <nav>
-                <ul className={classes.links}>
-                    <li>
-                        <Link to='/'>Pokemon Search</Link>
-                    </li>
-                    <li>
-                        <Link to='/favorites'>Favorite Pokemon</Link>
-                    </li>
-                </ul>
-            </nav>
+            <div className={classes.links}>
+                <div>
+                    <Link to='/'>Pokemon Search</Link>
+                </div>
+                <div>
+                    <Link to='/favorites'>Favorite Pokemon</Link>
+                </div>
+            </div>
         </header>
     )
 }
