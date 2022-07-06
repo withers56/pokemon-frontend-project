@@ -38,7 +38,7 @@ function AllPokemon() {
         <div>
             <div className='row'>
                 <div className="col-12">
-                    <div className='d-flex justify-content-between align-items-center mx-5'>
+                    <div className='d-flex justify-content-between align-items-center m-5' >
                         <h1>Pokemon</h1>
                         <div className=''>
                             <input type="text" id='pokemon-searchbar' placeholder='Search for pokemon..'/>
@@ -48,10 +48,10 @@ function AllPokemon() {
                         main featured pokemon
                     </div>
                 </div>
-                <div className="col-6">
+                <div className="col-6 border border-success">
                     <PokemonsList pokemons={loadedPokemons} /></div>
-                <div className="col-6">
-
+                <div className="col-6 border border-success">
+                    fill
                 </div>
             </div>
         </div>

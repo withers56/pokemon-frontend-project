@@ -6,7 +6,7 @@ function MainNavagation() {
 
     return (
         <header className={classes.nav}>
-            <div>LoGo</div>
+            <div  className='my-3'>LoGo</div>
             <div className={classes.links}>
                 <div>
                     <Link to='/'>Pokemon Search</Link>
