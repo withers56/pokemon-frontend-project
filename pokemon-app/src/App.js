@@ -1,12 +1,12 @@
-
 import './App.css';
 import {Route, Switch} from "react-router-dom";
 import AllPokemon from "./pages/AllPokemon";
 import FavoritePokemon from "./pages/FavoritePokemon";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
-    <div>
+    <Layout>
       <Switch>
         <Route path='/' exact>
           <AllPokemon />
@@ -15,7 +15,7 @@ function App() {
             <FavoritePokemon />
         </Route>
       </Switch>
-    </div>
+    </Layout>
   );
 }
 
