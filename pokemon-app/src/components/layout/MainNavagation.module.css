@@ -1,0 +1,17 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: cornflowerblue;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    list-style: none;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+ .links li {
+     padding-left: .5em;
+     padding-right: .5em;
+ }

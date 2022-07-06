@@ -1,4 +1,5 @@
 import PokemonsList from "../components/pokemons/PokemonsList";
+import classes from './AllPokemon.module.css'
 import {useEffect, useState} from "react";
 
 function AllPokemon() {
@@ -34,8 +35,25 @@ function AllPokemon() {
     }
 
     return (
-        <div>this is where all the pokemon will go
-            <PokemonsList pokemons={loadedPokemons} />
+        <div>
+            <div className='row'>
+                <div className="col-12">
+                    <div className='d-flex justify-content-between align-items-center mx-5'>
+                        <h1>Pokemon</h1>
+                        <div className=''>
+                            <input type="text" id='pokemon-searchbar' placeholder='Search for pokemon..'/>
+                        </div>
+                    </div>
+                    <div className={classes.mainFeaturedPokemon}>
+                        main featured pokemon
+                    </div>
+                </div>
+                <div className="col-6">
+                    <PokemonsList pokemons={loadedPokemons} /></div>
+                <div className="col-6">
+
+                </div>
+            </div>
         </div>
 
     )

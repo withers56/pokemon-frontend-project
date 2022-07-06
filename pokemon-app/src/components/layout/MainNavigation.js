@@ -1,19 +1,19 @@
 import {Link} from "react-router-dom";
-
+import classes from './MainNavagation.module.css'
 import {useContext} from "react";
 
 function MainNavagation() {
 
     return (
-        <header>
+        <header className={classes.nav}>
             <div>LoGo</div>
             <nav>
-                <ul>
+                <ul className={classes.links}>
                     <li>
-                        <Link to='/'>All Meetups</Link>
+                        <Link to='/'>Pokemon Search</Link>
                     </li>
                     <li>
-                        <Link to='/favorites'>Favorites</Link>
+                        <Link to='/favorites'>Favorite Pokemon</Link>
                     </li>
                 </ul>
             </nav>
