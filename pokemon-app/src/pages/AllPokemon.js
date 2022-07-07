@@ -1,10 +1,36 @@
 import PokemonsList from "../components/pokemons/PokemonsList";
 import classes from './AllPokemon.module.css'
 import {useEffect, useState} from "react";
+import {logDOM} from "@testing-library/react";
 
 function AllPokemon() {
     const [isLoading, setIsLoading] = useState(true)
     const [loadedPokemons, setLoadedPokemons] = useState([]);
+    const [pokemondata, setPokemondata] = useState([]);
+    const arrayOfFeaturedPokemon = [25, 133, 143]
+
+    useEffect(() => {
+        let featuredPokemon = [];
+        Promise.all(Array.from({ length: arrayOfFeaturedPokemon.length }, (_, i) => // change number to 151
+            fetch(`https://pokeapi.co/api/v2/pokemon/${arrayOfFeaturedPokemon[i]}`)
+                .then(res => res.json())
+                .then((data) => {
+                        console.log(data)
+
+                        const addedPokemon = {
+                            id: data.id,
+                            name: data.name,
+                            height: data.height,
+                            weight: data.weight,
+                            sprites: data.sprites
+                        }
+                        featuredPokemon.push(addedPokemon)
+
+                })
+        )).then(() => setPokemondata(featuredPokemon))
+    },[])
+
+
 
     useEffect(() => {
         setIsLoading(true);
@@ -49,7 +75,7 @@ function AllPokemon() {
                     </div>
                 </div>
                 <div className="col-6 border border-success">
-                    <PokemonsList pokemons={loadedPokemons} /></div>
+                    <PokemonsList pokemons={pokemondata} /></div>
                 <div className="col-6 border border-success">
                     fill
                 </div>

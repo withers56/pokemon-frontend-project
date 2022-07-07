@@ -7,11 +7,13 @@ function PokemonsList(props) {
         return splitUrl[6];
     }
     return (
-        <div className={classes.list}>
+        <div>
             {props.pokemons.map(pokemon => <PokemonsItem
-                key={getIdFromUrl(pokemon.url)}
+                key={pokemon.id}
                 name={pokemon.name}
-                url={pokemon.url} />)}
+                height={pokemon.height}
+                weight={pokemon.weight}
+                sprites={pokemon.sprites}/>)}
         </div>
     )
 }
