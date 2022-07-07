@@ -3,3 +3,7 @@
     margin: 1em;
     padding: .5em;
 }
+
+.featuredPokemonCard {
+    width: 40%;
+}
