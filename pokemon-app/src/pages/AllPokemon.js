@@ -11,11 +11,14 @@ function AllPokemon() {
 
     useEffect(() => {
         let featuredPokemon = [];
-        Promise.all(Array.from({ length: arrayOfFeaturedPokemon.length }, (_, i) => // change number to 151
-            fetch(`https://pokeapi.co/api/v2/pokemon/${arrayOfFeaturedPokemon[i]}`)
-                .then(res => res.json())
-                .then((data) => {
+
+        if (localStorage.getItem('featuredPokemon') == null) {
+            Promise.all(Array.from({ length: arrayOfFeaturedPokemon.length }, (_, i) => // change number to 151
+                fetch(`https://pokeapi.co/api/v2/pokemon/${arrayOfFeaturedPokemon[i]}`)
+                    .then(res => res.json())
+                    .then((data) => {
                         console.log(data)
+                        console.log('inside fetch')
 
                         const addedPokemon = {
                             id: data.id,
@@ -26,9 +29,15 @@ function AllPokemon() {
                             types: data.types
                         }
                         featuredPokemon.push(addedPokemon)
+                        window.localStorage.setItem('featuredPokemon', JSON.stringify(featuredPokemon))
 
-                })
-        )).then(() => setPokemondata(featuredPokemon))
+                    })
+            )).then(() => setPokemondata(featuredPokemon))
+        }
+        else {
+            console.log('inside localstorage grab')
+            setPokemondata(JSON.parse(window.localStorage.getItem('featuredPokemon')))
+        }
     },[])
 
 
@@ -75,9 +84,9 @@ function AllPokemon() {
                         main featured pokemon
                     </div>
                 </div>
-                <div className="col-6 ">
+                <div className="col-12 col-md-6 ">
                     <PokemonsList pokemons={pokemondata} /></div>
-                <div className="col-6 ">
+                <div className="col-12 col-md-6 ">
                     <div className='border border-success'>
                         fill
                     </div>

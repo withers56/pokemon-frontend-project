@@ -1,7 +1,8 @@
 .nav {
     display: flex;
     justify-content: space-between;
-    background-color: cornflowerblue;
+    background-color: #121212;
+    color: white;
     align-items: center;
 }
 
@@ -12,7 +13,6 @@
     margin-left: 1em;
     margin-right: 1em;
 }
- .links div {
-     padding-left: .5em;
-     padding-right: .5em;
+ .tabDiv:hover{
+     border-bottom: 4px solid white;
  }

@@ -8,11 +8,11 @@ function MainNavagation() {
         <header className={classes.nav}>
             <div  className=''>LoGo</div>
             <div className={classes.links}>
-                <div className='py-3'>
-                    <Link to='/'>Pokemon Search</Link>
+                <div className={`py-3 px-1 ${classes.tabDiv}`}>
+                    <Link className='text-decoration-none text-white' to='/'>Pokemon Search</Link>
                 </div>
-                <div className='py-3'>
-                    <Link to='/favorites'>Favorite Pokemon</Link>
+                <div className='py-3 px-1'>
+                    <Link className='text-decoration-none text-white' to='/favorites'>Favorite Pokemon</Link>
                 </div>
             </div>
         </header>
