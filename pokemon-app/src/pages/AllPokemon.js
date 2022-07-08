@@ -2,12 +2,13 @@ import PokemonsList from "../components/pokemons/PokemonsList";
 import classes from './AllPokemon.module.css'
 import {useEffect, useState} from "react";
 import {logDOM} from "@testing-library/react";
+import MainFeaturedPokemon from "../components/pokemons/MainFeaturedPokemon";
 
 function AllPokemon() {
     const [isLoading, setIsLoading] = useState(true)
     const [loadedPokemons, setLoadedPokemons] = useState([]);
     const [pokemondata, setPokemondata] = useState([]);
-    const arrayOfFeaturedPokemon = [25, 133, 143, 666, 150]
+    const arrayOfFeaturedPokemon = [25, 133, 143, 666, 150, 6]
 
     useEffect(() => {
         let featuredPokemon = [];
@@ -26,7 +27,10 @@ function AllPokemon() {
                             height: data.height,
                             weight: data.weight,
                             sprites: data.sprites,
-                            types: data.types
+                            types: data.types,
+                            stats: data.stats,
+                            abilities: data.abilities
+
                         }
                         featuredPokemon.push(addedPokemon)
                         window.localStorage.setItem('featuredPokemon', JSON.stringify(featuredPokemon))
@@ -81,7 +85,7 @@ function AllPokemon() {
                         </div>
                     </div>
                     <div className={classes.mainFeaturedPokemon}>
-                        main featured pokemon
+                        <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]}/>
                     </div>
                 </div>
                 <div className="col-12 col-md-6 ">
