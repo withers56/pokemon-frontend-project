@@ -7,7 +7,7 @@ function AllPokemon() {
     const [isLoading, setIsLoading] = useState(true)
     const [loadedPokemons, setLoadedPokemons] = useState([]);
     const [pokemondata, setPokemondata] = useState([]);
-    const arrayOfFeaturedPokemon = [25, 133, 143]
+    const arrayOfFeaturedPokemon = [25, 133, 143, 666, 150]
 
     useEffect(() => {
         let featuredPokemon = [];
@@ -22,7 +22,8 @@ function AllPokemon() {
                             name: data.name,
                             height: data.height,
                             weight: data.weight,
-                            sprites: data.sprites
+                            sprites: data.sprites,
+                            types: data.types
                         }
                         featuredPokemon.push(addedPokemon)
 
@@ -61,10 +62,10 @@ function AllPokemon() {
     }
 
     return (
-        <div>
-            <div className='row'>
+        <div className=''>
+            <div className='row gx-0'>
                 <div className="col-12">
-                    <div className='d-flex justify-content-between align-items-center m-5' >
+                    <div className='d-flex justify-content-between align-items-center m-3' >
                         <h1>Pokemon</h1>
                         <div className=''>
                             <input type="text" id='pokemon-searchbar' placeholder='Search for pokemon..'/>
@@ -74,10 +75,12 @@ function AllPokemon() {
                         main featured pokemon
                     </div>
                 </div>
-                <div className="col-6 border border-success">
+                <div className="col-6 ">
                     <PokemonsList pokemons={pokemondata} /></div>
-                <div className="col-6 border border-success">
-                    fill
+                <div className="col-6 ">
+                    <div className='border border-success'>
+                        fill
+                    </div>
                 </div>
             </div>
         </div>

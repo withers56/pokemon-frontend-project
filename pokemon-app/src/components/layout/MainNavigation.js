@@ -6,12 +6,12 @@ function MainNavagation() {
 
     return (
         <header className={classes.nav}>
-            <div  className='my-3'>LoGo</div>
+            <div  className=''>LoGo</div>
             <div className={classes.links}>
-                <div>
+                <div className='py-3'>
                     <Link to='/'>Pokemon Search</Link>
                 </div>
-                <div>
+                <div className='py-3'>
                     <Link to='/favorites'>Favorite Pokemon</Link>
                 </div>
             </div>
