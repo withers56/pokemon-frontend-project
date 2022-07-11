@@ -20,19 +20,11 @@ function MainFeaturedPokemon(props) {
                             <div className="nav nav-tabs card-header-tabs" id="nav-tab" role="tablist">
                                 <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                                        aria-selected="true">Home
+                                        aria-selected="true">Info
                                 </button>
                                 <button className="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
-                                        aria-selected="false">Profile
-                                </button>
-                                <button className="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
-                                        aria-selected="false">Contact
-                                </button>
-                                <button className="nav-link" id="nav-disabled-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled"
-                                        aria-selected="false" disabled>Disabled
+                                        aria-selected="false">Stats
                                 </button>
                             </div>
                     </div>
@@ -41,22 +33,28 @@ function MainFeaturedPokemon(props) {
                             <div className="tab-pane fade show active" id="nav-home" role="tabpanel"
                                  aria-labelledby="nav-home-tab" tabIndex="0">
                                 <div className='row'>
-                                    <div className='col'>Height: {heightAndWeightConverter(featuredPokemon.height)}m</div>
-                                    <div className='col'>Weight: {heightAndWeightConverter(featuredPokemon.weight)}kg</div>
+                                    <div className='col my-2'>Height: {heightAndWeightConverter(featuredPokemon.height)}m</div>
+                                    <div className='col my-2'>Weight: {heightAndWeightConverter(featuredPokemon.weight)}kg</div>
                                 </div>
                                 <div className='row'>
-                                    <div className='col'>Height: </div>
-                                    <div className='col'>Weight: 23</div>
+                                    <div className='col my-2'>Types: {featuredPokemon.types.map(type => <span>{type.type.name} </span>)}</div>
+                                    <div className='col my-2'>Abilities: {featuredPokemon.abilities.map(ability => <span>{ability.ability.name} </span>)}</div>
                                 </div>
                             </div>
                             <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
-                                 tabIndex="0">...
-                            </div>
-                            <div className="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
-                                 tabIndex="0">...
-                            </div>
-                            <div className="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab"
-                                 tabIndex="0">...
+                                 tabIndex="0">
+                                <div className='row'>
+                                    <div className="col my-2">Hp: {featuredPokemon.stats[0].base_stat}</div>
+                                    <div className="col my-2">Attack: {featuredPokemon.stats[1].base_stat}</div>
+                                </div>
+                                <div className='row'>
+                                    <div className="col my-2">Defense: {featuredPokemon.stats[2].base_stat}</div>
+                                    <div className="col my-2">Speed: {featuredPokemon.stats[3].base_stat}</div>
+                                </div>
+                                <div className='row'>
+                                    <div className="col my-2">Special-Attack: {featuredPokemon.stats[4].base_stat}</div>
+                                    <div className="col my-2">Special-Defense: {featuredPokemon.stats[5].base_stat}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
