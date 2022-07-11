@@ -75,6 +75,10 @@ function AllPokemon() {
         )
     }
 
+    function test() {
+        console.log('hi')
+    }
+
     return (
         <div className=''>
             <div className='row gx-0'>
@@ -85,13 +89,12 @@ function AllPokemon() {
                             <input type="text" id='pokemon-searchbar' placeholder='Search for pokemon..'/>
                         </div>
                     </div>
-                    <AnimationAcrossScreen />
                     <div className={classes.mainFeaturedPokemon}>
-                        <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]}/>
+                            <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]} clickTest={test}/>
                     </div>
                 </div>
                 <div className="col-12 col-md-6 ">
-                    <PokemonsList pokemons={pokemondata} /></div>
+                    <PokemonsList pokemons={pokemondata}/></div>
                 <div className="col-12 col-md-6 ">
                     <div className='border border-success'>
                         fill
