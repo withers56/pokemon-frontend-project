@@ -3,6 +3,7 @@ import classes from './AllPokemon.module.css'
 import {useEffect, useState} from "react";
 import {logDOM} from "@testing-library/react";
 import MainFeaturedPokemon from "../components/pokemons/MainFeaturedPokemon";
+import AnimationAcrossScreen from "../components/ui/AnimationAcrossScreen";
 
 function AllPokemon() {
     const [isLoading, setIsLoading] = useState(true)
@@ -84,6 +85,7 @@ function AllPokemon() {
                             <input type="text" id='pokemon-searchbar' placeholder='Search for pokemon..'/>
                         </div>
                     </div>
+                    <AnimationAcrossScreen />
                     <div className={classes.mainFeaturedPokemon}>
                         <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]}/>
                     </div>
