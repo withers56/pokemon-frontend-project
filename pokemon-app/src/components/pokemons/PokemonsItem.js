@@ -1,5 +1,6 @@
 import classes from './PokemonsItem.module.css'
 import Card from "../ui/Card";
+import {useHistory} from "react-router-dom";
 
 function PokemonsItem(props) {
     console.log(props.types)
@@ -34,6 +35,7 @@ function PokemonsItem(props) {
                 <div className="card-text text-center">Height: {heightAndWeightConverter(props.height)}m</div>
                 <div className="card-text text-center">Weight: {heightAndWeightConverter(props.weight)}kgs</div>
             </div>
+            <button onClick={props.btn}/>
         </div>
     )
 }

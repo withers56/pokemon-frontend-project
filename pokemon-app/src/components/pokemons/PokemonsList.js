@@ -14,7 +14,8 @@ function PokemonsList(props) {
                 height={pokemon.height}
                 weight={pokemon.weight}
                 sprites={pokemon.sprites}
-                types={pokemon.types}/>)}
+                types={pokemon.types}
+                btn={pokemon.onGoToPage}/>)}
         </div>
     )
 }

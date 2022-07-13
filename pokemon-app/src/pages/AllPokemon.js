@@ -4,14 +4,13 @@ import {useEffect, useState} from "react";
 import {logDOM} from "@testing-library/react";
 import MainFeaturedPokemon from "../components/pokemons/MainFeaturedPokemon";
 import AnimationAcrossScreen from "../components/ui/AnimationAcrossScreen";
+import {useHistory} from "react-router-dom";
 
 function AllPokemon() {
     const [isLoading, setIsLoading] = useState(true)
     const [loadedPokemons, setLoadedPokemons] = useState([]);
     const [pokemondata, setPokemondata] = useState([]);
     const arrayOfFeaturedPokemon = [25, 133, 143, 666, 150, 6]
-
-
 
     useEffect(() => {
         let featuredPokemon = [];

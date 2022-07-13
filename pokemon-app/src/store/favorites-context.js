@@ -10,6 +10,10 @@ const FavoritesContext = createContext({
 
 });
 
+const SearchedPokemonContext = createContext( {
+    searchedId: [],
+})
+
 export function FavoritesContextProvider(props) {
     const [userFavorites, setUserFavorites] = useState([])
 
