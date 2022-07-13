@@ -15,8 +15,7 @@ function App() {
         <Route path='/favorites'>
             <FavoritePokemon />
         </Route>
-        <Route path='/searchedPokemon'>
-            <SearchedPokemon />
+        <Route path='/searchedPokemon' component={SearchedPokemon}>
         </Route>
       </Switch>
     </Layout>

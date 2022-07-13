@@ -10,12 +10,12 @@ function PokemonsList(props) {
         <div className='d-flex overflow-auto border border-success'>
             {props.pokemons.map(pokemon => <PokemonsItem
                 key={pokemon.id}
+                id={pokemon.id}
                 name={pokemon.name}
                 height={pokemon.height}
                 weight={pokemon.weight}
                 sprites={pokemon.sprites}
-                types={pokemon.types}
-                btn={pokemon.onGoToPage}/>)}
+                types={pokemon.types}/>)}
         </div>
     )
 }
