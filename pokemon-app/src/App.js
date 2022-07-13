@@ -3,6 +3,7 @@ import {Route, Switch} from "react-router-dom";
 import AllPokemon from "./pages/AllPokemon";
 import FavoritePokemon from "./pages/FavoritePokemon";
 import Layout from "./components/layout/Layout";
+import SearchedPokemon from "./pages/SearchedPokemon";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         </Route>
         <Route path='/favorites'>
             <FavoritePokemon />
+        </Route>
+        <Route path='/searchedPokemon'>
+            <SearchedPokemon />
         </Route>
       </Switch>
     </Layout>

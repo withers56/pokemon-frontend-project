@@ -11,6 +11,8 @@ function AllPokemon() {
     const [pokemondata, setPokemondata] = useState([]);
     const arrayOfFeaturedPokemon = [25, 133, 143, 666, 150, 6]
 
+
+
     useEffect(() => {
         let featuredPokemon = [];
 
@@ -89,6 +91,7 @@ function AllPokemon() {
                             <input type="text" id='pokemon-searchbar' placeholder='Search for pokemon..'/>
                         </div>
                     </div>
+                    <AnimationAcrossScreen />
                     <div className={classes.mainFeaturedPokemon}>
                             <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]} clickTest={test}/>
                     </div>
