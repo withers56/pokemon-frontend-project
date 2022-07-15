@@ -7,14 +7,14 @@ function MainFeaturedPokemon(props) {
     console.log(featuredPokemon)
     return(
 
-        <div className='row'>
-            <div className='col-4'>
+        <div className={`row ${classes.mainFeaturedPokemon}`}>
+            <div className='col-12 col-md-4'>
                 <div className='my-5 text-center'>
                     <img className={classes.image} src={featuredPokemon.sprites.front_default} alt="main poke"/>
                     <div>{featuredPokemon.name}</div>
                 </div>
             </div>
-            <div className='col-8'>
+            <div className='col-12 col-md-8'>
                 <div className="card text-center m-5">
                     <div className="card-header">
                             <div className="nav nav-tabs card-header-tabs" id="nav-tab" role="tablist">

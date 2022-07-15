@@ -91,9 +91,7 @@ function AllPokemon() {
                         </div>
                     </div>
                     <AnimationAcrossScreen />
-                    <div className={classes.mainFeaturedPokemon}>
-                            <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]} clickTest={test}/>
-                    </div>
+                    <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]} clickTest={test}/>
                 </div>
                 <div className="col-12 col-md-6 ">
                     <PokemonsList pokemons={pokemondata}/></div>
