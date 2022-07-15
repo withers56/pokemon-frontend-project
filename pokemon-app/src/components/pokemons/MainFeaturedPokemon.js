@@ -37,8 +37,8 @@ function MainFeaturedPokemon(props) {
                                     <div className='col my-2'>Weight: {heightAndWeightConverter(featuredPokemon.weight)}kg</div>
                                 </div>
                                 <div className='row'>
-                                    <div className='col my-2'>Types: {featuredPokemon.types.map(type => <span>{type.type.name} </span>)}</div>
-                                    <div className='col my-2'>Abilities: {featuredPokemon.abilities.map(ability => <span>{ability.ability.name} </span>)}</div>
+                                    <div className='col my-2'>Types: {featuredPokemon.types.map(type => <span key={type.type.name}>{type.type.name} </span>)}</div>
+                                    <div className='col my-2'>Abilities: {featuredPokemon.abilities.map(ability => <span key={ability.ability.name}>{ability.ability.name} </span>)}</div>
                                 </div>
                             </div>
                             <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
