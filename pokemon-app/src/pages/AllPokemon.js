@@ -5,6 +5,7 @@ import {logDOM} from "@testing-library/react";
 import MainFeaturedPokemon from "../components/pokemons/MainFeaturedPokemon";
 import AnimationAcrossScreen from "../components/ui/AnimationAcrossScreen";
 import {useHistory} from "react-router-dom";
+import Searchbar from "../components/ui/Searchbar";
 
 function AllPokemon() {
     const [isLoading, setIsLoading] = useState(true)
@@ -84,12 +85,7 @@ function AllPokemon() {
         <div className=''>
             <div className='row gx-0'>
                 <div className="col-12">
-                    <div className='d-flex justify-content-between align-items-center m-3' >
-                        <h1>Pokemon</h1>
-                        <div className=''>
-                            <input type="text" id='pokemon-searchbar' placeholder='Search for pokemon..'/>
-                        </div>
-                    </div>
+                    <Searchbar />
                     <AnimationAcrossScreen />
                     <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]} clickTest={test}/>
                 </div>
