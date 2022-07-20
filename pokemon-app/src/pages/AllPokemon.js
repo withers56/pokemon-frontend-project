@@ -71,9 +71,11 @@ function AllPokemon() {
 
     if (isLoading) {
         return (
-            <section>
-                <p>Loading...</p>
-            </section>
+            <div className='d-flex justify-content-center'>
+                <div className="lds-circle">
+                    <div></div>
+                </div>
+            </div>
         )
     }
 

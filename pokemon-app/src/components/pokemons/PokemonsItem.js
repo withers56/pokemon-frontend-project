@@ -35,10 +35,12 @@ function PokemonsItem(props) {
                 <div className="card-text text-center">Height: {heightAndWeightConverter(props.height)}m</div>
                 <div className="card-text text-center">Weight: {heightAndWeightConverter(props.weight)}kgs</div>
             </div>
-            <Link to={{
-                pathname: '/searchedPokemon',
-                state: props.id,
-            }}>test</Link>
+            <div className='text-center'>
+                <Link to={{
+                    pathname: '/searchedPokemon',
+                    state: props.id,
+                }}><button className='btn btn-primary'>go</button></Link>
+            </div>
         </div>
     )
 }
