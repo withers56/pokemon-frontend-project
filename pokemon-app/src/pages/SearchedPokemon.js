@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import classes from './SearchedPokemon.module.css';
 import otherClasses from '../components/pokemons/MainFeaturedPokemon.module.css'
 import {heightAndWeightConverter} from "../functions/conversions/Conversions";
+import StatChart from "../components/ui/StatChart";
 
 function SearchedPokemon(props) {
     let id = props.location.state;
@@ -29,6 +30,10 @@ function SearchedPokemon(props) {
                 </div>
             </div>
         )
+    }
+
+    function chartInit() {
+
     }
 
 
@@ -64,7 +69,7 @@ function SearchedPokemon(props) {
             </div>
             <div className='row'>
                 <div className="col-12 col-md-12 bg-danger">
-                    d
+                    <canvas id="myChart" width="400" height="400"><StatChart /></canvas>
                 </div>
             </div>
         </div>
