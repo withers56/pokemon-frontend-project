@@ -69,7 +69,7 @@ function SearchedPokemon(props) {
             </div>
             <div className='row'>
                 <div className="col-12 col-md-12 bg-danger">
-                    <canvas id="myChart" width="400" height="400"><StatChart /></canvas>
+                    <StatChart pokemonStats={pokemondata[0].stats}/>
                 </div>
             </div>
         </div>

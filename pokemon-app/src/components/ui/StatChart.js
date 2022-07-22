@@ -1,65 +1,121 @@
 import {
     Chart,
+    ArcElement,
+    LineElement,
+    BarElement,
+    PointElement,
+    BarController,
+    BubbleController,
+    DoughnutController,
+    LineController,
+    PieController,
+    PolarAreaController,
+    RadarController,
+    ScatterController,
     CategoryScale,
     LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
+    LogarithmicScale,
+    RadialLinearScale,
+    TimeScale,
+    TimeSeriesScale,
+    Decimation,
+    Filler,
     Legend,
+    Title,
+    Tooltip
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import {useEffect} from "react";
 
 
 
 
 function StatChart(props) {
 
+    useEffect(() => {
+        chartInit()
+    })
+
     function chartInit() {
+
+        Chart.register(
+            ArcElement,
+            LineElement,
+            BarElement,
+            PointElement,
+            BarController,
+            BubbleController,
+            DoughnutController,
+            LineController,
+            PieController,
+            PolarAreaController,
+            RadarController,
+            ScatterController,
+            CategoryScale,
+            LinearScale,
+            LogarithmicScale,
+            RadialLinearScale,
+            TimeScale,
+            TimeSeriesScale,
+            Decimation,
+            Filler,
+            Legend,
+            Title,
+            Tooltip
+        );
+
+
         const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'bar',
+        var xValues = ["Hp", "Attack", "Defense", "Special-Attack", "Special-Defense", 'Speed'];
+        var yValues = [];
+        var barColors = ['#ff8000'];
+
+        props.pokemonStats.map(stat => yValues.push(stat.base_stat))
+
+        new Chart("myChart", {
+            type: "bar",
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: xValues,
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
+                    backgroundColor: barColors,
+                    data: yValues,
+                    borderColor: 'black',
+                    borderWidth: 5
+                },
+                ]
             },
             options: {
+
+                plugins: {
+                    title: {
+                        display: true,
+                        color: 'black',
+                        text: "World Wine Production 2018"
+                    },
+                    label: {
+                        color: 'black'
+                    },
+                    legend: {display: false}
+                },
+
                 scales: {
                     y: {
-                        beginAtZero: true
+                        ticks: { color: 'black', beginAtZero: true }
+                    },
+                    x: {
+                        ticks: { color: 'black', beginAtZero: true }
                     }
                 }
             }
         });
     }
 
-    chartInit();
+
 
 
 
     return (
-        <div>
-
-        </div>
+        <canvas className='m-5' id="myChart"></canvas>
     )
 }
 
