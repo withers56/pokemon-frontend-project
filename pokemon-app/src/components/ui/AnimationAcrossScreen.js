@@ -1,8 +1,17 @@
 import classes from './AnimationAcrossScreen.module.css'
 
-function AnimationAcrossScreen() {
+function AnimationAcrossScreen(props) {
+    function ashOrPika() {
+        if (props.char === 'ash') {
+            return classes.ash
+        }
+        if (props.char === 'pika') {
+            return classes.pika
+
+        }
+    }
     return (
-        <div className={classes.box}></div>
+        <div className={ashOrPika()}></div>
     )
 }
 

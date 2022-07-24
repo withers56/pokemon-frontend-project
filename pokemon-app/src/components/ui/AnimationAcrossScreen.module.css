@@ -1,18 +1,43 @@
-.box {
+.pika {
     width: 50px;
     height: 50px;
+    display: inline-block;
 
-    background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png");
+
+    background-image: url('../../output-onlinegiftools.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
 
     position: relative;
-    animation-name: acrossScreen;
-    animation-duration: 20s;
+    animation-name: acrossScreen1;
+    animation-duration: 25s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
-@keyframes acrossScreen {
-    0%   {left:0px; top:0px;}
-    100% {left: 100%; top:0px;}
+.ash {
+    width: 100px;
+    height: 150px;
+    display: inline-block;
+
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1b600cdc-09bb-4045-a1db-83e7c4e3905c/dacytqk-34dc4bfd-fcdb-4551-924c-23bdfb66a911.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFiNjAwY2RjLTA5YmItNDA0NS1hMWRiLTgzZTdjNGUzOTA1Y1wvZGFjeXRxay0zNGRjNGJmZC1mY2RiLTQ1NTEtOTI0Yy0yM2JkZmI2NmE5MTEuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.KJniIwoBCOZojphF_aRAb2ixyUYQCmIn8AORtgan-Ak');
+    background-position: center;
+
+    position: relative;
+    animation-name: acrossScreen2;
+    animation-duration: 25s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes acrossScreen1 {
+    0%   {left:100%; top:0px;}
+    100% {left: 0px; top:0px}
+
+}
+
+@keyframes acrossScreen2 {
+    0%   {left:100%; top:0px;}
+    100% {left: 0px; top:0px;}
 }

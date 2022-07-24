@@ -87,8 +87,11 @@ function AllPokemon() {
         <div className=''>
             <div className='row gx-0'>
                 <div className="col-12">
-                    <Searchbar />
-                    <AnimationAcrossScreen />
+                    <Searchbar/>
+                    <div className=''>
+                        <AnimationAcrossScreen  char='pika'/>
+                        <AnimationAcrossScreen  char='ash'/>
+                    </div>
                     <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]} clickTest={test}/>
                 </div>
                 <div className="col-12 col-md-6 ">
