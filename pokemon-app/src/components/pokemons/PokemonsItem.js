@@ -1,9 +1,31 @@
 import classes from './PokemonsItem.module.css'
 import Card from "../ui/Card";
 import {Link, useHistory} from "react-router-dom";
+import {useContext} from "react";
+import FavoritesContext from "../../store/favorites-context";
 
 function PokemonsItem(props) {
-    console.log(props.types)
+    const favoritesCtx = useContext(FavoritesContext);
+
+    const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
+
+    function toggleMeetupStatusHandler() {
+        if (itemIsFavorite) {
+            favoritesCtx.removeFavorite(props.id)
+        } else {
+            favoritesCtx.addFavorite({
+                id: props.id,
+                name: props.name,
+                sprites: props.sprites,
+                height: props.height,
+                weight: props.weight,
+                types: props.types
+            })
+        }
+        console.log(favoritesCtx.favorites)
+    }
+
+
     function heightAndWeightConverter(value) {
         //turns value into string and not a number
         value = value + ""
@@ -28,6 +50,7 @@ function PokemonsItem(props) {
 
     return (
         <div className={`card mx-2 my-1 ${classes.featuredPokemonCard}`}>
+            {itemIsFavorite ? <i className="bi bi-star-fill text-orange" onClick={toggleMeetupStatusHandler}></i> : <i className="bi bi-star-fill" onClick={toggleMeetupStatusHandler}></i>}
             <img src={props.sprites.front_default} alt="" className='card-img-top border-bottom border-dark'/>
             <div className="card-body">
                 <div className='d-flex justify-content-center'>{props.types.map(type => <span className='mx-2' key={props.id + type.type.name}>{type.type.name}</span>)}</div>
