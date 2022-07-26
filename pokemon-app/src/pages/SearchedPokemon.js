@@ -75,18 +75,18 @@ function SearchedPokemon(props) {
                     <div className={`card mx-auto my-5 ${classes.width80} boxshadow`}>
                         <div className="card-body">
                             <h5 className="card-title">Info</h5>
-                            <p className="card-text">
+                            <div className="card-text">
                                 <div className='row'>
                                     <div className='col my-2'>Height: {heightAndWeightConverter(pokemondata[0].height)}m</div>
                                     <div className='col my-2'>Weight: {heightAndWeightConverter(pokemondata[0].weight)}kg</div>
                                 </div>
-                            </p>
-                            <p className="card-text">
+                            </div>
+                            <div className="card-text">
                                 <div className='row'>
                                     <div className='col my-2'>Types: {pokemondata[0].types.map(type => <span key={type.type.name}>{type.type.name} </span>)}</div>
                                      <div className='col my-2'>Abilities: {pokemondata[0].abilities.map(ability => <span key={ability.ability.name}>{ability.ability.name} </span>)}</div>
                                 </div>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>

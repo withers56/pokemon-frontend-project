@@ -9,6 +9,14 @@ function FavoritePokemon() {
     console.log(favoritesCtx.favorites)
 
 
+    if (favoritePokemon.length < 1) {
+        return (
+            <div className='text-center my-5'>
+                You have no favorite pokemon yet.
+            </div>
+        )
+    }
+
     return (
         <div>
             <PokemonsList pokemons={favoritePokemon} />

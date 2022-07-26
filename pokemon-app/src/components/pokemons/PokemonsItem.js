@@ -49,7 +49,7 @@ function PokemonsItem(props) {
     }
 
     return (
-        <div className={`card mx-2 my-1 boxshadow ${classes.featuredPokemonCard}`}>
+        <div className={`card mx-2 mt-2 mb-3 boxshadow ${classes.featuredPokemonCard}`}>
             {itemIsFavorite ? <span><i className="bi bi-star-fill text-yellow m-1" onClick={toggleMeetupStatusHandler}></i></span> : <span><i className="bi bi-star-fill hover-opacity m-1" onClick={toggleMeetupStatusHandler}></i></span>}
             <img src={props.sprites.front_default} alt="" className='card-img-top border-bottom border-dark'/>
             <div className="card-body">

@@ -4,7 +4,7 @@ function Footer() {
             <div>
                 <hr className='mt-5 mb-3'/>
                 <div className='d-flex justify-content-center'>
-                    <div>
+                    <div className='mb-2'>
                         <i className="bi bi-github large-font mx-4"></i>
                         <i className="bi bi-linkedin large-font mx-4"></i>
                     </div>

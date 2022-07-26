@@ -10,6 +10,7 @@ function MainFeaturedPokemon(props) {
         <div className={`${classes.mainFeaturedPokemon}`}>
             <div className=''>
                 <div className='my-4 text-center'>
+                    <h2>Featured Pokemon</h2>
                     <img className={classes.image} src={featuredPokemon.sprites.front_default} alt="main poke"/>
                     <div className={classes.pokemonHeader}>{featuredPokemon.name} #{featuredPokemon.id}</div>
                 </div>
