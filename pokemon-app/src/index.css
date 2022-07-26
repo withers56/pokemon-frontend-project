@@ -32,8 +32,12 @@ code {
   opacity: .7;
 }
 
-.btn-blue {
+.large-font {
+  font-size: 2em;
+}
 
+.boxshadow {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 .lds-circle {

@@ -72,7 +72,7 @@ function SearchedPokemon(props) {
                     </div>
                 </div>
                 <div className="col-12 col-md-7">
-                    <div className={`card mx-auto my-5 ${classes.width80} ${classes.boxshadow}`}>
+                    <div className={`card mx-auto my-5 ${classes.width80} boxshadow`}>
                         <div className="card-body">
                             <h5 className="card-title">Info</h5>
                             <p className="card-text">

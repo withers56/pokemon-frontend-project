@@ -14,8 +14,8 @@ function MainFeaturedPokemon(props) {
                     <div className={classes.pokemonHeader}>{featuredPokemon.name} #{featuredPokemon.id}</div>
                 </div>
             </div>
-            <div className={classes.navtab}>
-                    <div className="card text-center my-auto">
+            <div className={`${classes.navtab}`}>
+                    <div className="card text-center my-auto boxshadow">
                         <div className="card-header">
                             <div className="nav nav-tabs card-header-tabs" id="nav-tab" role="tablist">
                                 <button className="nav-link active text-orange" id="nav-home-tab" data-bs-toggle="tab"

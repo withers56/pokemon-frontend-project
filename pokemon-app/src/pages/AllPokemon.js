@@ -94,10 +94,10 @@ function AllPokemon() {
                     </div>
                     <MainFeaturedPokemon pokemon={pokemondata[pokemondata.length - 1]} clickTest={test}/>
                 </div>
-                <div className="col-12 col-md-6 ">
+                <div className="col-12 col-md-6">
                     <PokemonsList pokemons={pokemondata}/></div>
                 <div className="col-12 col-md-6 ">
-                    <div className='border border-success'>
+                    <div className=''>
                         fill
                     </div>
                 </div>

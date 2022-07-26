@@ -7,7 +7,7 @@ function PokemonsList(props) {
         return splitUrl[6];
     }
     return (
-        <div className='d-flex overflow-auto border border-success'>
+        <div className='d-flex overflow-auto m-2'>
             {props.pokemons.map(pokemon => <PokemonsItem
                 key={pokemon.id}
                 id={pokemon.id}
