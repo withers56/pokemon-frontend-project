@@ -1,5 +1,6 @@
 import {Link, Redirect, useHistory} from "react-router-dom";
 import {useRef} from "react";
+import AnimationAcrossScreen from "./AnimationAcrossScreen";
 
 
 function Searchbar(props) {
@@ -26,7 +27,8 @@ function Searchbar(props) {
         }
     }
     return (
-        <div className='d-flex justify-content-between align-items-center m-3' >
+
+        <div className='d-flex justify-content-between align-items-center mt-3' >
             <h1>Pokemon</h1>
             <div className=''>
                 <input type="text" id='pokemon-searchbar' placeholder='Search for pokemon..' ref={searchedNameRef} onKeyPress={SearchbarInputHandler}/>

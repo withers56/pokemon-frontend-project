@@ -50,7 +50,7 @@ function PokemonsItem(props) {
 
     return (
         <div className={`card mx-2 my-1 ${classes.featuredPokemonCard}`}>
-            {itemIsFavorite ? <i className="bi bi-star-fill text-orange" onClick={toggleMeetupStatusHandler}></i> : <i className="bi bi-star-fill" onClick={toggleMeetupStatusHandler}></i>}
+            {itemIsFavorite ? <span><i className="bi bi-star-fill text-yellow m-1" onClick={toggleMeetupStatusHandler}></i></span> : <span><i className="bi bi-star-fill hover-opacity m-1" onClick={toggleMeetupStatusHandler}></i></span>}
             <img src={props.sprites.front_default} alt="" className='card-img-top border-bottom border-dark'/>
             <div className="card-body">
                 <div className='d-flex justify-content-center'>{props.types.map(type => <span className='mx-2' key={props.id + type.type.name}>{type.type.name}</span>)}</div>

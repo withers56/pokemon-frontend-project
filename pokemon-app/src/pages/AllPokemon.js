@@ -87,8 +87,8 @@ function AllPokemon() {
         <div className=''>
             <div className='row gx-0'>
                 <div className="col-12">
-                    <Searchbar/>
                     <div className=''>
+                        <Searchbar/>
                         <AnimationAcrossScreen  char='pika'/>
                         <AnimationAcrossScreen  char='ash'/>
                     </div>

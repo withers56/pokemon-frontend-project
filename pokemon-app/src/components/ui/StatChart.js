@@ -26,11 +26,15 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import {useEffect} from "react";
+import classes from './StatChart.module.css'
+
 
 
 
 
 function StatChart(props) {
+
+
 
     useEffect(() => {
         chartInit()
@@ -68,9 +72,10 @@ function StatChart(props) {
         const ctx = document.getElementById('myChart').getContext('2d');
         var xValues = ["Hp", "Attack", "Defense", "Special-Attack", "Special-Defense", 'Speed'];
         var yValues = [];
-        var barColors = ['#ff8000'];
+        var barColors = ['#5148FF'];
 
         props.pokemonStats.map(stat => yValues.push(stat.base_stat))
+
 
         new Chart("myChart", {
             type: "bar",
@@ -80,7 +85,7 @@ function StatChart(props) {
                     backgroundColor: barColors,
                     data: yValues,
                     borderColor: 'black',
-                    borderWidth: 5
+                    borderWidth: 2
                 },
                 ]
             },
@@ -90,7 +95,7 @@ function StatChart(props) {
                     title: {
                         display: true,
                         color: 'black',
-                        text: "World Wine Production 2018"
+                        text: "Stats"
                     },
                     label: {
                         color: 'black'
@@ -115,7 +120,12 @@ function StatChart(props) {
 
 
     return (
-        <canvas className='m-5' id="myChart"></canvas>
+
+            <div className={`card mx-auto ${classes.width90} ${classes.boxshadow}`}>
+                <div className="card-body" id='chartContainer'>
+                    <canvas className='m-5' id="myChart"></canvas>
+                </div>
+            </div>
     )
 }
 

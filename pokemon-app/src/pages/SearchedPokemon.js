@@ -1,13 +1,18 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import classes from './SearchedPokemon.module.css';
 import otherClasses from '../components/pokemons/MainFeaturedPokemon.module.css'
 import {heightAndWeightConverter} from "../functions/conversions/Conversions";
 import StatChart from "../components/ui/StatChart";
+import FavoritesContext from "../store/favorites-context";
 
 function SearchedPokemon(props) {
     let id = props.location.state;
     const [isLoading, setIsLoading] = useState(true)
     const [pokemondata, setPokemondata] = useState([]);
+
+    const favoritesCtx = useContext(FavoritesContext);
+
+    const itemIsFavorite = favoritesCtx.itemIsFavorite(id);
 
     useEffect(() => {
         setIsLoading(true);
@@ -32,15 +37,27 @@ function SearchedPokemon(props) {
         )
     }
 
-    function chartInit() {
-
+    function toggleMeetupStatusHandler() {
+        if (itemIsFavorite) {
+            favoritesCtx.removeFavorite(props.id)
+        } else {
+            favoritesCtx.addFavorite({
+                id: props.id,
+                name: props.name,
+                sprites: props.sprites,
+                height: props.height,
+                weight: props.weight,
+                types: props.types
+            })
+        }
+        console.log(favoritesCtx.favorites)
     }
 
 
     return (
         <div>
-            <div className='row'>
-                <div className="col-12 col-md-5 bg-primary">
+            <div className='row mb-3'>
+                <div className="col-12 col-md-5">
                     <div>
                         <div>
                             <div className='text-center'>
@@ -54,21 +71,28 @@ function SearchedPokemon(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-12 col-md-7 bg-warning">
-                    <div>
-                        <div className='row'>
-                            <div className='col my-2'>Height: {heightAndWeightConverter(pokemondata[0].height)}m</div>
-                            <div className='col my-2'>Weight: {heightAndWeightConverter(pokemondata[0].weight)}kg</div>
-                        </div>
-                        <div className='row'>
-                            <div className='col my-2'>Types: {pokemondata[0].types.map(type => <span key={type.type.name}>{type.type.name} </span>)}</div>
-                            <div className='col my-2'>Abilities: {pokemondata[0].abilities.map(ability => <span key={ability.ability.name}>{ability.ability.name} </span>)}</div>
+                <div className="col-12 col-md-7">
+                    <div className={`card mx-auto my-5 ${classes.width80} ${classes.boxshadow}`}>
+                        <div className="card-body">
+                            <h5 className="card-title">Info</h5>
+                            <p className="card-text">
+                                <div className='row'>
+                                    <div className='col my-2'>Height: {heightAndWeightConverter(pokemondata[0].height)}m</div>
+                                    <div className='col my-2'>Weight: {heightAndWeightConverter(pokemondata[0].weight)}kg</div>
+                                </div>
+                            </p>
+                            <p className="card-text">
+                                <div className='row'>
+                                    <div className='col my-2'>Types: {pokemondata[0].types.map(type => <span key={type.type.name}>{type.type.name} </span>)}</div>
+                                     <div className='col my-2'>Abilities: {pokemondata[0].abilities.map(ability => <span key={ability.ability.name}>{ability.ability.name} </span>)}</div>
+                                </div>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className='row'>
-                <div className="col-12 col-md-12 bg-danger">
+                <div className="col-12 col-md-12">
                     <StatChart pokemonStats={pokemondata[0].stats}/>
                 </div>
             </div>

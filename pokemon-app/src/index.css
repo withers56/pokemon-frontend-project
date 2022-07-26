@@ -16,8 +16,20 @@ code {
   color: #e76f51;
 }
 
+.text-yellow {
+  color: #e3e301;
+}
+
+.text-yellow:hover {
+  color: #bdbd00;
+}
+
 .text-orange:hover {
   color: #c55e45;
+}
+
+.hover-opacity:hover {
+  opacity: .7;
 }
 
 .btn-blue {
