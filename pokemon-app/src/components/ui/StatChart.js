@@ -70,6 +70,7 @@ function StatChart(props) {
 
 
         const ctx = document.getElementById('myChart').getContext('2d');
+        let chartElement = document.getElementById('myChart');
         var xValues = ["Hp", "Attack", "Defense", "Special-Attack", "Special-Defense", 'Speed'];
         var yValues = [];
         var barColors = ['#5148FF'];
@@ -77,7 +78,7 @@ function StatChart(props) {
         props.pokemonStats.map(stat => yValues.push(stat.base_stat))
 
 
-        new Chart("myChart", {
+        let myChart = new Chart("myChart", {
             type: "bar",
             data: {
                 labels: xValues,
@@ -114,6 +115,7 @@ function StatChart(props) {
             }
         });
     }
+
 
 
 

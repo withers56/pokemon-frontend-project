@@ -4,6 +4,7 @@ import otherClasses from '../components/pokemons/MainFeaturedPokemon.module.css'
 import {heightAndWeightConverter} from "../functions/conversions/Conversions";
 import StatChart from "../components/ui/StatChart";
 import FavoritesContext from "../store/favorites-context";
+import {useHistory} from "react-router-dom";
 
 function SearchedPokemon(props) {
     let id = props.location.state;
@@ -14,6 +15,7 @@ function SearchedPokemon(props) {
 
     const itemIsFavorite = favoritesCtx.itemIsFavorite(id);
 
+    const history = useHistory();
     useEffect(() => {
         setIsLoading(true);
         const pokemon = [];
@@ -39,18 +41,22 @@ function SearchedPokemon(props) {
 
     function toggleMeetupStatusHandler() {
         if (itemIsFavorite) {
-            favoritesCtx.removeFavorite(props.id)
+            favoritesCtx.removeFavorite(id)
         } else {
             favoritesCtx.addFavorite({
-                id: props.id,
-                name: props.name,
-                sprites: props.sprites,
-                height: props.height,
-                weight: props.weight,
-                types: props.types
+                id: id,
+                name: pokemondata[0].name,
+                sprites: pokemondata[0].sprites,
+                height: pokemondata[0].height,
+                weight: pokemondata[0].weight,
+                types: pokemondata[0].types
             })
         }
         console.log(favoritesCtx.favorites)
+
+        history.push({
+            pathname: '/'
+        })
     }
 
 
@@ -74,6 +80,7 @@ function SearchedPokemon(props) {
                 <div className="col-12 col-md-7">
                     <div className={`card mx-auto my-5 ${classes.width80} boxshadow`}>
                         <div className="card-body">
+                            {itemIsFavorite ? <span><i className="bi bi-star-fill text-yellow m-1" onClick={toggleMeetupStatusHandler}></i></span> : <span><i className="bi bi-star-fill hover-opacity m-1" onClick={toggleMeetupStatusHandler}></i></span>}
                             <h5 className="card-title">Info</h5>
                             <div className="card-text">
                                 <div className='row'>
